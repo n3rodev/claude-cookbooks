@@ -1,0 +1,75 @@
+{
+    "_comment": "Example financial data for testing the Financial Ratio Analyzer skill",
+    "_description": "Realistic financial metrics from a mid-sized technology company",
+
+    "company_info": {
+        "name": "Example Tech Corp",
+        "period": "2024 Q4",
+        "currency": "USD"
+    },
+
+    "income_statement": {
+        "revenue": 5000000,
+        "cost_of_goods_sold": 2500000,
+        "gross_profit": 2500000,
+        "operating_expenses": 1500000,
+        "operating_income": 1000000,
+        "interest_expense": 50000,
+        "tax_expense": 190000,
+        "net_income": 760000
+    },
+
+    "balance_sheet": {
+        "assets": {
+            "current_assets": 2000000,
+            "cash": 500000,
+            "accounts_receivable": 800000,
+            "inventory": 700000,
+            "fixed_assets": 3000000,
+            "total_assets": 5000000
+        },
+        "liabilities": {
+            "current_liabilities": 1000000,
+            "accounts_payable": 400000,
+            "short_term_debt": 600000,
+            "long_term_debt": 900000,
+            "total_debt": 1500000,
+            "total_liabilities": 1900000
+        },
+        "equity": {
+            "common_stock": 1000000,
+            "retained_earnings": 2100000,
+            "total_equity": 3100000
+        }
+    },
+
+    "consolidated_metrics": {
+        "revenue": 5000000,
+        "net_income": 760000,
+        "total_assets": 5000000,
+        "total_equity": 3100000,
+        "current_assets": 2000000,
+        "current_liabilities": 1000000,
+        "inventory": 700000,
+        "total_debt": 1500000,
+        "cost_of_goods_sold": 2500000,
+        "cash": 500000
+    },
+
+    "_usage_instructions": {
+        "minimal_input": "Use only the consolidated_metrics object with the key metrics",
+        "call_example": "python calculate_ratios.py < example_financial_data.json",
+        "expected_metrics": [
+            "revenue",
+            "net_income",
+            "total_assets",
+            "total_equity",
+            "current_assets",
+            "current_liabilities",
+            "inventory",
+            "total_debt",
+            "cost_of_goods_sold",
+            "cash"
+        ]
+    }
+}
