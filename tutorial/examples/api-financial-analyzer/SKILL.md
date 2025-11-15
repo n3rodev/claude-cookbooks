@@ -1,6 +1,6 @@
 ---
 name: financial-ratio-analyzer
-description: API Skill for comprehensive financial ratio analysis and performance metrics
+description: Calculate and interpret financial ratios including profitability (ROE, ROA), liquidity (current ratio, quick ratio), leverage (debt-to-equity), and efficiency metrics. Use when analyzing financial statements, evaluating company health, or comparing company performance.
 ---
 
 # Financial Ratio Analyzer API Skill

@@ -1,6 +1,6 @@
 ---
 name: code-reviewer
-description: Comprehensive code review skill with style guide and checklist. Demonstrates multi-file skill architecture with progressive disclosure pattern.
+description: Perform comprehensive code reviews using style guides and checklists. Use when the user requests code review, quality assessment, security audit, or needs feedback on code architecture, best practices, and maintainability.
 ---
 
 # Code Reviewer Skill

@@ -213,7 +213,8 @@ def _read_skill_code() -> str:
         skill_path = Path(__file__).parent / "calculate_ratios.py"
         with open(skill_path, 'r') as f:
             return f.read()
-    except:
+    except (FileNotFoundError, IOError, OSError) as e:
+        print(f"Warning: Could not read skill file: {e}")
         return ""
 
 

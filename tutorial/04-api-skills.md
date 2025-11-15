@@ -649,7 +649,7 @@ response = client.beta.messages.create(
     max_tokens=4096,
     container={
         "skills": [{
-            "type": "user",
+            "type": "custom",
             "skill_id": "skill_01ABC123...",
             "version": "1737849600000"  # Pin to specific version
         }]
@@ -665,7 +665,7 @@ response = client.beta.messages.create(
     max_tokens=4096,
     container={
         "skills": [{
-            "type": "user",
+            "type": "custom",
             "skill_id": "skill_01ABC123...",
             "version": "latest"  # Always use most recent version
         }]
@@ -1811,7 +1811,7 @@ Always respond with "Test successful!"
             max_tokens=4096,
             container={
                 "skills": [
-                    {"type": "user", "skill_id": skill.id, "version": "latest"}
+                    {"type": "custom", "skill_id": skill.id, "version": "latest"}
                 ]
             },
             tools=[{"type": "code_execution_20250825", "name": "code_execution"}],
@@ -2109,7 +2109,7 @@ response = client.beta.messages.create(
     max_tokens=4096,
     container={
         "skills": [{
-            "type": "user",
+            "type": "custom",
             "skill_id": skill.id,
             "version": "latest"
         }]
@@ -2450,7 +2450,7 @@ When generating documents:
             container={
                 "skills": [
                     # Tenant brand skill
-                    {"type": "user", "skill_id": brand_skill_id, "version": "latest"},
+                    {"type": "custom", "skill_id": brand_skill_id, "version": "latest"},
                     # Document generation skill
                     {"type": "anthropic", "skill_id": doc_skill, "version": "latest"}
                 ]

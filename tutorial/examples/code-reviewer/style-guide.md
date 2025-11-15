@@ -655,8 +655,8 @@ requests = "2.31.0"   # HTTP requests
 
 [optional-dependencies]
 dev = [
-    "pytest = "7.4.0",       # Testing framework
-    "ruff = "0.1.0",         # Code formatting
+    "pytest==7.4.0",       # Testing framework
+    "ruff==0.1.0",         # Code formatting
 ]
 ```
 

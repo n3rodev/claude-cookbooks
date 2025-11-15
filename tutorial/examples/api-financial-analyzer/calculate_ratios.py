@@ -14,7 +14,7 @@ and also parsed by tools that understand the PEP 723 inline script metadata form
 
 import json
 import sys
-from typing import Dict, Optional, Tuple, Any
+from typing import Dict, Any
 
 
 class FinancialRatioCalculator:
@@ -183,13 +183,18 @@ class FinancialRatioCalculator:
         Returns:
             Comprehensive dictionary with all calculated ratios and interpretations
         """
+        profitability = self.calculate_profitability_ratios()
+        liquidity = self.calculate_liquidity_ratios()
+        leverage = self.calculate_leverage_ratios()
+        efficiency = self.calculate_efficiency_ratios()
+
         return {
-            'profitability': self.calculate_profitability_ratios(),
-            'liquidity': self.calculate_liquidity_ratios(),
-            'leverage': self.calculate_leverage_ratios(),
-            'efficiency': self.calculate_efficiency_ratios(),
+            'profitability': profitability,
+            'liquidity': liquidity,
+            'leverage': leverage,
+            'efficiency': efficiency,
             'validation_errors': self.errors if self.errors else None,
-            'summary': self._generate_summary()
+            'summary': self._generate_summary(profitability, liquidity, leverage)
         }
 
     def _interpret_roe(self, roe: float) -> str:
@@ -289,14 +294,25 @@ class FinancialRatioCalculator:
         else:
             return "Excellent - Very efficient inventory turnover"
 
-    def _generate_summary(self) -> str:
-        """Generate a one-line summary of overall financial health."""
+    def _generate_summary(self, profitability: Dict[str, Any], liquidity: Dict[str, Any],
+                          leverage: Dict[str, Any]) -> str:
+        """
+        Generate a one-line summary of overall financial health.
+
+        Args:
+            profitability: Calculated profitability ratios
+            liquidity: Calculated liquidity ratios
+            leverage: Calculated leverage ratios
+
+        Returns:
+            Summary string describing overall financial health
+        """
         if self.errors:
             return "Analysis incomplete due to missing data"
 
-        roe_health = 'strong' if self.ratios.get('profitability', {}).get('roe', 0) > 0.10 else 'moderate'
-        liquidity_health = 'strong' if self.ratios.get('liquidity', {}).get('current_ratio', 0) > 1.5 else 'weak'
-        leverage_health = 'strong' if self.ratios.get('leverage', {}).get('debt_to_equity_ratio', 0) < 1.0 else 'elevated'
+        roe_health = 'strong' if profitability.get('roe', 0) > 0.10 else 'moderate'
+        liquidity_health = 'strong' if liquidity.get('current_ratio', 0) > 1.5 else 'weak'
+        leverage_health = 'strong' if leverage.get('debt_to_equity_ratio', 0) < 1.0 else 'elevated'
 
         return f"Overall financial health: {roe_health} profitability, {liquidity_health} liquidity, {leverage_health} leverage"
 

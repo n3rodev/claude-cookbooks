@@ -1,6 +1,6 @@
 ---
 name: simple-calculator
-description: A minimal calculator skill demonstrating basic arithmetic operations (add, subtract, multiply, divide) with step-by-step calculations
+description: Perform basic arithmetic operations (add, subtract, multiply, divide) with step-by-step calculations. Use when the user requests mathematical calculations, needs to solve arithmetic problems, or asks to calculate numbers.
 ---
 
 # Simple Calculator Skill
